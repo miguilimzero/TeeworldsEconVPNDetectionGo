@@ -17,7 +17,7 @@ var (
 
 // Config represents the application configuration
 type Config struct {
-	IPHubToken       string
+	ProxyCheckToken  string
 	RedisAddress     string
 	RedisPassword    string
 	RedisDB          int
@@ -49,10 +49,10 @@ func (c *Config) Options() configo.Options {
 			UnparseFunction: unparsers.String(&c.delimiter),
 		},
 		{
-			Key:             "IPHUB_TOKEN",
-			Description:     "API key that is provided via any tier by https://iphub.info",
-			ParseFunction:   parsers.String(&c.IPHubToken),
-			UnparseFunction: unparsers.String(&c.IPHubToken),
+			Key:             "PROXYCHECK_TOKEN",
+			Description:     "API key that is provided via any tier by https://proxycheck.io/",
+			ParseFunction:   parsers.String(&c.ProxyCheckToken),
+			UnparseFunction: unparsers.String(&c.ProxyCheckToken),
 		},
 		{
 			Key:             "REDIS_ADDRESS",

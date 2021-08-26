@@ -39,11 +39,7 @@ func NewVPNChecker(cfg *Config) (*VPNChecker, error) {
 		// share client with all apis
 		httpClient := &http.Client{}
 
-		if cfg.IPHubToken != "" {
-			apis = append(apis, NewIPHub(httpClient, cfg.IPHubToken))
-		}
-
-		apis = append(apis, NewIPTeohIO(httpClient))
+		apis = append(apis, NewProxyCheck(httpClient, cfg.ProxyCheckToken))
 	}
 
 	ripr, err := goripr.NewClient(goripr.Options{
